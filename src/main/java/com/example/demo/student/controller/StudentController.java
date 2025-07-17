@@ -1,5 +1,7 @@
-package com.example.demo.student;
+package com.example.demo.student.controller;
 
+import com.example.demo.student.service.StudentService;
+import com.example.demo.student.model.Student;
 import org.springframework.web.bind.annotation.*;
 
 

@@ -1,5 +1,7 @@
-package com.example.demo.student;
+package com.example.demo.student.service;
 
+import com.example.demo.student.repository.StudentRepository;
+import com.example.demo.student.model.Student;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,6 +30,11 @@ public class StudentService {
 
         studentRepository.save(student);
     }
+    public Student getStudentById(Long id) {
+        return studentRepository.findById(id)
+                .orElseThrow(() -> new IllegalStateException("Student ID not found: " + id));
+    }
+
 
     public void deleteStudent(Long Studentid) {
         boolean exists = studentRepository.existsById(Studentid);
